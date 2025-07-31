@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PLS SAY YES</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        body {
+            background-image: url('https://c4.wallpaperflare.com/wallpaper/207/870/383/cats-cat-love-romantic-wallpaper-preview.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+        }
+
+        .question-box {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 400px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+
+        .btn {
+            background-color: gray;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: darkgray;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .emoji-img {
+            margin-top: 20px;
+            width: 60px;
+            height: auto;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Q1-->
+    <div id="q1" class="question-box">
+        <p>Perchance are you single?</p>
+        <button class="btn" onclick="showNext('q1', 'q2')">Yes</button>
+        <button class="btn" onclick="showMessage('q1', 'endMessage')">No</button>
+    </div>
+
+    <!-- Q2 -->
+    <div id="q2" class="question-box hidden">
+        <p>Heh.. Can I change that?</p>
+        <button class="btn" onclick="showNext('q2', 'q3')">Yes</button>
+        <button class="btn" onclick="showMessage('q2', 'endMessage')">No</button>
+    </div>
+
+    <!-- Q3-->
+    <div id="q3" class="question-box hidden">
+        <p>Do you love me?</p>
+        <button class="btn" onclick="showMessage('q3', 'successMessage')">Yes</button>
+        <button class="btn" onclick="showMessage('q3', 'endMessage')">No</button>
+    </div>
+
+    <!-- NO -->
+    <div id="endMessage" class="question-box hidden">
+        <p>bye twin</p>
+        <img src="https://images.emojiterra.com/google/noto-emoji/unicode-16.0/color/svg/1f940.svg" class="emoji-img">
+		<p> <br> message me if yo ahh is done here </p>
+	</div>
+
+    <!-- FINAL MESSAGE -->
+    <div id="successMessage" class="question-box hidden">
+        <p>Cool.. Now go send me a message saying you love me :D</p>
+    </div>
+
+    <script>
+        function showNext(currentId, nextId) {
+            document.getElementById(currentId).classList.add("hidden");
+            document.getElementById(nextId).classList.remove("hidden");
+        }
+
+        function showMessage(currentId, messageId) {
+            document.getElementById(currentId).classList.add("hidden");
+            document.getElementById(messageId).classList.remove("hidden");
+        }
+    </script>
+
+</body>
+</html>
